@@ -42,8 +42,8 @@ void printTableLine() {
 int main() {
 
 	int i, n;
-	float avg_tt;
-	float avg_wt;
+	float avg_tt = 0;
+	float avg_wt = 0;
 
 	printf("Enter total number of processes: ");
 	scanf("%d", &n);

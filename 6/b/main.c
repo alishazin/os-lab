@@ -53,7 +53,8 @@ int main() {
 	int cur_time = 0;
 	int completed_count = 0;
 	int pushed_count = 0;
-	float avg_tt, avg_wt;
+	float avg_tt=0;
+	float avg_wt=0;
 
 	while (1) {
 		// Decrement rbt and calculate ct,tt,wt if completed	
