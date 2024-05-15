@@ -78,10 +78,10 @@ int main() {
 				if (ps[i].at == cur_time) {
 					ps[i].pushed = 1;
 					pushed_count++;
-				} else continue;
+				}
 			}
 			
-			if (short_p == NULL || ps[i].rbt < short_p->rbt) {
+			if (ps[i].pushed == 1 && (short_p == NULL || ps[i].rbt < short_p->rbt)) {
 				short_p = &ps[i];
 			}
 
