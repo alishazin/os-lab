@@ -1,0 +1,45 @@
+CREATE or replace trigger update_trig
+2  AFTER update on employees
+3  for each row
+4  when (NEW.salary != OLD.salary)
+5  DECLARE
+6  recent_track number;
+7  BEGIN
+8  select max(track_count) into recent_track from sal_track where emp_id = :NEW.id;
+9  update sal_track set latest = 0 where track_count=recent_track AND emp_id=:NEW.id;
+10  insert into sal_track(emp_id, salary, track_count) values(:NEW.id, :NEW.salary, recent_track + 1);
+11  END;
+12  /
+
+SQL> create or replace trigger insert_trig
+2  AFTER INSERT ON employees
+3  FOR EACH ROW
+4  WHEN (NEW.id > 0)
+5  BEGIN
+6  insert into sal_track(emp_id, salary) values(:NEW.id, :NEW.salary);
+7  END;
+8  /
+
+SQL> CREATE or replace trigger delete_trig
+2  BEFORE delete on employees
+3  FOR EACH ROW
+4  WHEN (OLD.id > 0)
+5  BEGIN
+6  delete from sal_track where emp_id=:OLD.id;
+7  END;
+8  /
+
+SQL> create table sal_track (
+2  emp_id int,
+3  salary float,
+4  track_count int default 1,
+5  latest number(1,0) default 1,
+6  foreign key (emp_id) referencing employees(id)
+7  );
+
+SQL> create table employees (
+2  id int,
+3  name varchar(20),
+4  salary float,
+5  primary key (id)
+6  );

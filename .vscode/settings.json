@@ -1,6 +1,16 @@
 {
     "files.associations": {
         "*.ejs": "html",
-        "definitions.h": "c"
+        "definitions.h": "c",
+        "expected": "c",
+        "optional": "c",
+        "ratio": "c",
+        "system_error": "c",
+        "array": "c",
+        "functional": "c",
+        "tuple": "c",
+        "type_traits": "c",
+        "utility": "c",
+        "variant": "c"
     }
 }
