@@ -9,7 +9,7 @@ int main() {
     a++;
 
     int p = fork();
-    ;
+    
     int b = 10; // variable after fork
     b++;
 
@@ -17,10 +17,10 @@ int main() {
 
     if (p < 0) {
         printf("Error: fork failed\n"); 
-	exit(1);
+        exit(1);
     } else if (p == 0) {
        	b++;
-	a++;
+        a++;
         printf("Child process: %ld\n", getpid());
         printf("A: value=%d\n", a);
         printf("B: value=%d\n", b);

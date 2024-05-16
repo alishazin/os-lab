@@ -108,24 +108,24 @@ int main() {
 	}
 
 	printTableLine();
-        printf("\n| PID\t| AT\t| BT\t| CT\t| TT\t| WT\t|");
-        printTableLine();	
+	printf("\n| PID\t| AT\t| BT\t| CT\t| TT\t| WT\t|");
+	printTableLine();	
 
 	for (i=0; i<n; i++) {
-                Process *cur = &ps[i];
+		Process *cur = &ps[i];
 
 		avg_tt += cur->tt;
-                avg_wt += cur->wt;
+		avg_wt += cur->wt;
 
-                printf("\n| P%d\t| %d\t| %d\t| %d\t| %d\t| %d\t|", cur->pid, cur->at, cur->bt, cur->ct, cur->tt, cur->wt);
+		printf("\n| P%d\t| %d\t| %d\t| %d\t| %d\t| %d\t|", cur->pid, cur->at, cur->bt, cur->ct, cur->tt, cur->wt);
 	}
 	printTableLine();printf("\n");
 
-        avg_tt /= n;
-        avg_wt /= n;
+	avg_tt /= n;
+	avg_wt /= n;
 
-        printf("\nAvg Turnaround Time: %0.2f", avg_tt);
-        printf("\nAvg Waiting Time: %0.2f\n", avg_wt);
+	printf("\nAvg Turnaround Time: %0.2f", avg_tt);
+	printf("\nAvg Waiting Time: %0.2f\n", avg_wt);
 
 	return 0;
 }

@@ -92,7 +92,7 @@ int main() {
 		cur->wt = cur->tt - cur->bt;
 		avg_wt += cur->wt;
 
-		printf("\n| %d\t| %d\t| %d\t| %d\t| %d\t| %d\t|", cur->pid, cur->at, cur->bt, cur->ct, cur->tt, cur->wt);
+		printf("\n| P%d\t| %d\t| %d\t| %d\t| %d\t| %d\t|", cur->pid, cur->at, cur->bt, cur->ct, cur->tt, cur->wt);
 	}
 	printTableLine();printf("\n");
 
